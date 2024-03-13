@@ -1,0 +1,72 @@
+name: {{project_name.snakeCase()}}
+description: {{{description}}}
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # localization
+  intl: ^0.18.0
+
+  # navigation
+  auto_route: ^7.8.4
+
+  # state management
+  hooks_riverpod: ^2.4.9
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+
+  #serialization
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+
+  # UI
+  velocity_x: ^4.1.2
+  gap: ^3.0.1
+  flutter_animate: ^4.2.0+1
+  flutter_svg: ^2.0.9
+
+  # misc
+  google_fonts: ^6.1.0
+  logger: ^2.0.2+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.3
+  flutter_lints: ^2.0.0
+  riverpod_lint: ^2.3.6
+  custom_lint: ^0.5.7
+
+  # serialization
+  freezed: ^2.4.5
+  json_serializable: ^6.7.1
+
+  # code generators
+  build_runner: ^2.4.5
+  riverpod_generator: ^2.3.9
+  auto_route_generator: ^7.3.2
+
+# typed assets
+flutter_gen:
+  output: lib/gen/ # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+
+  # Optional
+  integrations:
+    flutter_svg: true
+
+flutter:
+  uses-material-design: true
+
+scripts:
+  build_files: dart run build_runner build --delete-conflicting-outputs
+  watch_files: dart run build_runner watch --delete-conflicting-outputs
+  flutter_gen: fluttergen -c ./pubspec.yaml
